@@ -1,0 +1,38 @@
+# development
+server:
+  port: 6064
+  tomcat:
+    uri-encoding: UTF-8
+#mybatis:
+#  mapper-locations: classpath*:mapper/second/*Mapper.xml
+#  type-aliases-package: com.skyjilygao.test.entity
+dev:
+  model: true
+
+#tpl: /tmp/tpl/
+tpl: /tpl/
+
+# datasource: master
+spring:
+  application:
+    name: test-multi-datasource
+  datasource:
+      jdbc-url: jdbc:postgresql://127.0.0.1:5432/test?charSet=utf-8
+#      hikari:
+#        jdbc-url: jdbc:postgresql://127.0.0.1:5432/test?charSet=utf-8
+#      url: jdbc:postgresql://127.0.0.1:5432/test?charSet=utf-8
+      username: postgresql
+      password: postgresql
+      tomcat:
+            max-wait: 30000
+            initialSize: 5
+            minIdle: 5
+            max-active: 30
+            test-on-borrow: true
+  datasource2:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/userMgt?charSet=utf-8
+      username: root
+      password: root
+
+  profiles:
+      active: dev
